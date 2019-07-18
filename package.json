@@ -1,0 +1,14 @@
+{
+  "name": "portfolio_website_v2",
+  "version": "1.0.2",
+  "description": "Resposive Portfolio Website with different styled pages and a burger menu",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "wisekrakr",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

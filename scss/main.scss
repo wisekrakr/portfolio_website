@@ -1,0 +1,195 @@
+@import 'config'; //_congif.scss file with variables
+@import 'menu';
+@import 'games';
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    @include background();
+    background: $primary-color;
+    color: setTextColor($primary-color);
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+// Headings
+
+h1, h2, h3{
+    margin: 0;
+    font-weight: 800;
+
+    &.large-heading{ // large-heading is attached to h1 
+        font-size: 6rem;
+    }
+
+    &.small-heading{
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary-color, 6), 0.5);
+    }
+}
+
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header{
+    position: fixed; //always on top
+    z-index: 2; //the bigger the number, the closer it is
+    width: 100%;
+}
+
+.text-secondary{
+    color: $secondary-color;
+}
+
+main{
+    padding: 4rem;
+    // height: 100%;
+    min-height: calc(100vh - 60px);    
+
+    .icons{ //icons nested within main, so no &
+        margin-top: 1rem;
+
+        a { //each a nested within the icons class
+            padding: 0.6rem;
+
+            &:hover{
+                color: $secondary-color;
+                @include easeOut();
+            }
+        }
+    }
+
+    &#home{
+        overflow: hidden; //no scroll bar
+        h1 {
+            margin-top: 20vh; //viewport height, 20 horizontal slices from the top(out 100)
+        }
+    }
+}
+
+// About Me Page
+
+.about-info{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 
+    'bio-image bio'
+    'info-1 info-1 '
+    'info-2 info-3 ';
+
+    grid-template-columns: repeat(2, 1fr);
+
+    a { //each a nested within the icons class
+        padding: 0.6rem;
+        color:$secondary-color;
+
+        &:hover{
+            color: rgba(darken($primary-color, 6), 0.5);
+            @include easeOut();
+        }
+    }
+
+    .bio-image{
+        grid-area: bio-image;   
+        margin: auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-size: cover;
+        border: $secondary-color 3px solid;    
+    }
+    .bio{
+        grid-area: bio;
+        font-size: 2rem;    
+    }
+    .info-1{
+        grid-area: info-1;
+    }
+    .info-2{
+        grid-area: info-2;
+        aside{
+            text-align: center;        
+            width: 280px;
+            float: center;
+            background-color: rgba(darken($secondary-color, 6), 0.5);
+            padding: 10px;
+            margin-left: 10px;
+        }
+    }
+    .info-3{
+        grid-area: info-3;    
+    }
+    
+    .info{
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+    }    
+}
+
+// The Way of the Coder Page
+
+.projects{
+    display: grid;
+    grid-gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    
+    
+    img{
+        border: 3px #ffffff solid;       
+        width: 100%;
+        &:hover{
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut();
+        }
+    }
+}
+
+// Contact Page
+
+.boxes{
+    display: flex;
+    flex-wrap: wrap; //when resizing the page, the boxes will line up or stack
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div{
+        font-size: 2rem;
+        border: 3px #ffffff solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 2.3rem;
+        @include easeOut();
+
+        &:hover{
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: setTextColor($secondary-color);
+
+            span{
+                color: setTextColor($secondary-color); 
+            }
+        }
+    }
+}
+
+// Footer 
+.main-footer{
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: setTextColor($primary-color);
+    height: 60px;
+}
+
+@import 'buttons';
+@import 'mobile'; //run after everything else is done
