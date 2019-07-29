@@ -35,3 +35,16 @@ function toggleMenu(){
     }
 }
 
+// Creating a footer for all pages
+
+function addFooter(){
+    var newFooter = document.createElement("footer");
+    var addFooterText = document.createTextNode("Copyright &copy; 2019 Wisekrakr");
+
+    newFooter.appendChild(addFooterText);
+
+    var getFooter = document.getElementById("footer");
+
+    document.body.insertBefore(newFooter, getFooter);
+}
+
